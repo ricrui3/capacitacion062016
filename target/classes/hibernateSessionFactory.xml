@@ -44,6 +44,8 @@ http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 			<list>
 				<value>mx.ipn.escom.cdt.capacitacion.informacionbase.model</value>
 				<value>mx.ipn.escom.cdt.capacitacion.informacionbase.model.*</value>
+				<value>mx.ipn.escom.cdt.capacitacion.proyecto.model</value>
+				<value>mx.ipn.escom.cdt.capacitacion.proyecto.model.*</value>
 			</list>
 		</property>
 	</bean>

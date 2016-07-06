@@ -12,6 +12,7 @@ import mx.ipn.escom.cdt.capacitacion.informacionbase.bs.EspecialistaEmpresaBs;
 import mx.ipn.escom.cdt.capacitacion.informacionbase.model.Cuenta;
 import mx.ipn.escom.cdt.capacitacion.informacionbase.model.Empresa;
 import mx.ipn.escom.cdt.capacitacion.informacionbase.model.Especialista;
+import mx.ipn.escom.cdt.capacitacion.informacionbase.model.EspecialistaEmpresa;
 import mx.ipn.escom.cdt.util.bs.GenericSearchBs;
 
 @Namespace("/informacion-base")
@@ -31,6 +32,7 @@ public class GestionarEmpresaCtrl extends ActionSupport{
 	private Cuenta cuenta;
 	private Especialista especialista;
 	private List<Especialista> listEspecialistas;
+	private List<EspecialistaEmpresa> listEspecialistaEmpresas;
 	private List<Integer> listIdPersonas;
 	private Integer idPersonaSel;
 	@Autowired
@@ -67,7 +69,12 @@ public class GestionarEmpresaCtrl extends ActionSupport{
 	}
 	
 	public String show(){
-		System.err.println(model);
+		EspecialistaEmpresa example = new EspecialistaEmpresa();
+		example.setIdEmpresa(model.getIdEmpresa());
+		listEspecialistaEmpresas = genericSearchBs.findByExample(example);
+		for (EspecialistaEmpresa empresa : listEspecialistaEmpresas) {
+			System.err.println(empresa.getEspecialista());
+		}
 		return "show";
 	}
 	
@@ -158,5 +165,13 @@ public class GestionarEmpresaCtrl extends ActionSupport{
 
 	public void setIdPersonaSel(Integer idPersonaSel) {
 		this.idPersonaSel = idPersonaSel;
+	}
+
+	public List<EspecialistaEmpresa> getListEspecialistaEmpresas() {
+		return listEspecialistaEmpresas;
+	}
+
+	public void setListEspecialistaEmpresas(List<EspecialistaEmpresa> listEspecialistaEmpresas) {
+		this.listEspecialistaEmpresas = listEspecialistaEmpresas;
 	}
 }

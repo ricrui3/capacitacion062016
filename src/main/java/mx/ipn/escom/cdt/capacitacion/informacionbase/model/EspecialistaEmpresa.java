@@ -24,6 +24,7 @@ public class EspecialistaEmpresa implements Model{
 	@ManyToOne
 	@JoinColumn(name="id_empresa", referencedColumnName="id_empresa", insertable=false, updatable=false)
 	private Empresa empresa;
+	
 	@ManyToOne
 	@JoinColumn(name="id_persona", referencedColumnName="id_persona", insertable=false, updatable=false)
 	private Especialista especialista;
@@ -73,4 +74,11 @@ public class EspecialistaEmpresa implements Model{
 	public void setEspecialista(Especialista especialista) {
 		this.especialista = especialista;
 	}
+
+	@Override
+	public String toString() {
+		return "EspecialistaEmpresa [id=" + id + ", idEmpresa=" + idEmpresa + ", idPersona=" + idPersona + ", empresa="
+				+ empresa + ", especialista=" + especialista + "]";
+	}
+	
 }

@@ -47,7 +47,9 @@
 									<a href="${pageContext.request.contextPath}/informacion-base/gestionar-empresa/${e.idEmpresa}"><img
 										src="${pageContext.request.contextPath}/resources/images/icons/check.png" /></a>
 									<a href="${pageContext.request.contextPath}/informacion-base/gestionar-empresa/${e.idEmpresa}/addSpecialist"><img
-										src="${pageContext.request.contextPath}/resources/images/icons/add.png" /></a>	
+										src="${pageContext.request.contextPath}/resources/images/icons/add.png" /></a>
+									<a href="${pageContext.request.contextPath}/proyecto/gestionar-proyecto/${e.idEmpresa}/editNew"><img
+										src="${pageContext.request.contextPath}/resources/images/icons/courses.png" /></a>		
 										</td>
 							</tr>
 						</s:iterator>

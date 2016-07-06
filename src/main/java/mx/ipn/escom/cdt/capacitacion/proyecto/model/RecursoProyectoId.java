@@ -1,4 +1,4 @@
-package mx.ipn.escom.cdt.capacitacion.informacionbase.model;
+package mx.ipn.escom.cdt.capacitacion.proyecto.model;
 
 import java.io.Serializable;
 
@@ -6,28 +6,26 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class EspecialistaEmpresaId implements Serializable{
+public class RecursoProyectoId implements Serializable{
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 6615146332923491939L;
-	
+	private static final long serialVersionUID = -3742164354490404877L;
 	@Column(name="id_persona")
 	private Integer idPersona;
 	@Column(name="id_empresa")
 	private Integer idEmpresa;
+	@Column(name="id_proyecto")
+	private Integer idProyecto;
 	
-	public EspecialistaEmpresaId(Integer idPersona, Integer idEmpresa) {
+	public RecursoProyectoId(Integer idPersona, Integer idEmpresa, Integer idProyecto) {
 		super();
 		this.idPersona = idPersona;
 		this.idEmpresa = idEmpresa;
+		this.idProyecto = idProyecto;
 	}
 	
-	public EspecialistaEmpresaId() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 	public Integer getIdPersona() {
 		return idPersona;
 	}
@@ -40,9 +38,10 @@ public class EspecialistaEmpresaId implements Serializable{
 	public void setIdEmpresa(Integer idEmpresa) {
 		this.idEmpresa = idEmpresa;
 	}
-
-	@Override
-	public String toString() {
-		return "EspecialistaEmpresaId [idPersona=" + idPersona + ", idEmpresa=" + idEmpresa + "]";
+	public Integer getIdProyecto() {
+		return idProyecto;
+	}
+	public void setIdProyecto(Integer idProyecto) {
+		this.idProyecto = idProyecto;
 	}
 }
