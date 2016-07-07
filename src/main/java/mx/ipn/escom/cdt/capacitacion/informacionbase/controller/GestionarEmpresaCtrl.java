@@ -37,6 +37,10 @@ public class GestionarEmpresaCtrl extends ActionSupport{
 	private Integer idPersonaSel;
 	@Autowired
 	private EspecialistaEmpresaBs especialistaEmpresaBs;
+	
+	private String nombre;
+	private String primerApellido;
+	private String segundoApelldio;
 
 	public String index(){
 		listEmpresas = genericSearchBs.findAll(Empresa.class);
@@ -76,6 +80,25 @@ public class GestionarEmpresaCtrl extends ActionSupport{
 			System.err.println(empresa.getEspecialista());
 		}
 		return "show";
+	}
+	
+	public String especialistaByExample() {
+		especialista = new Especialista();
+		if(!nombre.isEmpty()){
+		especialista.setNombre(nombre);
+		}
+		if(!primerApellido.isEmpty()){
+		especialista.setPrimerApellido(primerApellido);
+		}
+		if(!segundoApelldio.isEmpty()){
+		especialista.setSegundoApellido(segundoApelldio);
+		}
+		System.err.println(especialista);
+		listEspecialistas = genericSearchBs.findByExample(especialista);
+		for (Especialista empresa : listEspecialistas) {
+			System.err.println(empresa);
+		}
+		return "listEspecialista";
 	}
 	
 	public String deleteConfirm(){
@@ -174,4 +197,47 @@ public class GestionarEmpresaCtrl extends ActionSupport{
 	public void setListEspecialistaEmpresas(List<EspecialistaEmpresa> listEspecialistaEmpresas) {
 		this.listEspecialistaEmpresas = listEspecialistaEmpresas;
 	}
+
+	/**
+	 * @return the nombre
+	 */
+	public String getNombre() {
+		return nombre;
+	}
+
+	/**
+	 * @param nombre the nombre to set
+	 */
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	/**
+	 * @return the primerApellido
+	 */
+	public String getPrimerApellido() {
+		return primerApellido;
+	}
+
+	/**
+	 * @param primerApellido the primerApellido to set
+	 */
+	public void setPrimerApellido(String primerApellido) {
+		this.primerApellido = primerApellido;
+	}
+
+	/**
+	 * @return the segundoApelldio
+	 */
+	public String getSegundoApelldio() {
+		return segundoApelldio;
+	}
+
+	/**
+	 * @param segundoApelldio the segundoApelldio to set
+	 */
+	public void setSegundoApelldio(String segundoApelldio) {
+		this.segundoApelldio = segundoApelldio;
+	}
+	
 }
