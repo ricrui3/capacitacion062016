@@ -3,6 +3,8 @@ package mx.ipn.escom.cdt.capacitacion.proyecto.controller;
 import java.util.List;
 
 import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.Result;
+import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -16,6 +18,8 @@ import mx.ipn.escom.cdt.util.bs.GenericSearchBs;
 
 
 @Namespace("/proyecto")
+@Results({
+	@Result(name = "indexEmpresa", type = "redirectAction", params = { "actionName", "../informacion-base/gestionar-empresa" }) })
 public class GestionarProyectoCtrl extends ActionSupport{
 
 	/**
@@ -48,7 +52,7 @@ public class GestionarProyectoCtrl extends ActionSupport{
 		System.err.println(model);
 		empresaProyecto.setIdEmpresa(idSel);
 		proyectoBs.guardar(empresaProyecto, model);
-		return index();
+		return "indexEmpresa";
 	}
 
 	public Proyecto getModel() {

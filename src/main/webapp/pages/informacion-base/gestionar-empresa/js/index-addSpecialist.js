@@ -57,7 +57,6 @@ var Especialista = function() {
 	}
 
 	function enviarForm() {
-		alert();
 		var id = "divContentDataTable";
 		var formId = "frmHdnObtenerEspecialistas";
 		Ajax.enviarFormHidden(id, formId, false, 1);
